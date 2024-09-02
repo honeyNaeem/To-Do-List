@@ -43,7 +43,9 @@ function removeData(index) {
 }
 
 function toggle(index) {
-    if(listItemNew.length > 0){
+    
+    if(listItemNew.length > 0 && listItemNew[index]){
+        console.log("ZX");
     listItemNew[index].isSelect = !listItemNew[index].isSelect;
     saveData();
 }
