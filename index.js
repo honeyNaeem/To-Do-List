@@ -31,18 +31,21 @@ function showData() {
     console.log(listItemNew);
     list.innerHTML = "";
     listItemNew.forEach((entity, i) => {
-        list.innerHTML += `<li class="${entity.isSelect && "done"}" onclick="toggle(${i})">${entity.name}<i onclick="removeData(${i})"></i></li>`
+        list.innerHTML += `<li class="${entity.isSelect && "done"}" onclick="toggle(${i})">${entity.name}<i onclick="removeData(${i});"></i></li>`
     })
 }
 
 
 function removeData(index) {
     listItemNew.splice(index, 1);
+        toggle(index);
     saveData();
 }
 
 function toggle(index) {
+    if(listItemNew.length > 0){
     listItemNew[index].isSelect = !listItemNew[index].isSelect;
     saveData();
+}
 }
 showData();
